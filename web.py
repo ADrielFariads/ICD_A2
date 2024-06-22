@@ -3,7 +3,7 @@ from math import ceil
 import requests
 
 # Funcao que coleta os comentarios
-def getWeb(url, comments):
+def get_web(url, comments):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     divContent = soup.find_all("div", class_="content")

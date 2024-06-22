@@ -1,5 +1,5 @@
 from web import getWeb
-from openiamod import addInfo, prompt
+from openia import addInfo, prompt
 
 
 # Dicionario que contem o codigo especifico de um url para cada filme

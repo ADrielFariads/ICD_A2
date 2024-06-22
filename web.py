@@ -25,5 +25,4 @@ def getMovieInfo(url):#função que coleta informações gerais do filme
     movie_year = [i.text for i in elements.find_all("span", class_="nobr")][0].strip().replace("(", "").replace(")", "")
     return title, movie_year
 
-print(getMovieInfo("https://www.imdb.com/title/tt0120815/reviews?ref_=tt_urv"))
 

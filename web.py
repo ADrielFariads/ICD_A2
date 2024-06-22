@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-
 # Funcao que coleta os comentarios
 def getWeb(url, comments):
     page = requests.get(url)

@@ -21,11 +21,8 @@ for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
     genre = opai.get_genre(movie)
     rate = wb.get_rate(url)
     approval = wb.get_approvals(url)
-    line += [movie, year, rate, genre, approval, positive_aspects[movie], negative_aspects[movie]]
+    line += [movie, year, genre, rate, approval, positive_aspects[movie], negative_aspects[movie]]
     data_base.append(line)
 
-    df = pd.DataFrame(data = data_base, columns = titles, index = False)
-    print(df)
-
-    if movie == "A.I. Artificial Intelligence":
-        break
+    df = pd.DataFrame(data = data_base, columns = titles)
+    df.to_csv("steven_spielberg's_movies_century_21.csv", index = False)

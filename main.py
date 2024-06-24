@@ -1,6 +1,7 @@
 import web as wb
 import openia as opai
 from data import *
+import pandas as pd
 
 titles = ["Filme", "Ano", "Avaliação Média", "Número de Aprovações", "Aspectos Positivos", "Aspectos Negativos"]
 data_base = []
@@ -21,6 +22,9 @@ for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
     approval = wb.get_approvals(url)
     line += [movie, year, rate, approval, positive_aspects[movie], negative_aspects[movie]]
     data_base.append(line)
+
+    df = pd.DataFrame(data = data_base, columns = titles, index = False)
+    print(df)
 
     if movie == "A.I. Artificial Intelligence":
         break

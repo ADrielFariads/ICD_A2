@@ -1,12 +1,12 @@
 from openai import OpenAI
 
-prompt = []
-client = OpenAI(api_key="chave") # Inserir a chave aqui
+# INSERIR A CHAVE AQUI
+key = ""
 
-def add_info(coment): # Função que pede insights para a api openai
+def get_positive_aspects(comment): # Função que pede insights para a api openai
     prompt = [{"role": "user",
-               "content": f"A seguir, você receberá um comentário referente a um filme. Classifique a opinião do usuário e diga em que aspectos o filme poderia melhorar.filme: saving prite ryan, {coment}"}]
-    client = OpenAI(api_key="")  # Inserir a chave aqui
+               "content": f"A seguir, você receberá um comentário referente a um filme. Cite os aspectos positivos sobre o filme presentes no comentário. Se não houver aspectos positivos, me retorne um espaço vazio. Me retorne apenas os aspectos principais resumidos em um único parágrafo. O comentário é: {comment}"}]
+    client = OpenAI(api_key = key)
 
     response = client.chat.completions.create(
         messages= prompt,

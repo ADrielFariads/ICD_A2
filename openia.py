@@ -1,4 +1,5 @@
 from openai import OpenAI
+import re
 
 # INSERIR A CHAVE AQUI
 key = ""
@@ -46,3 +47,9 @@ def get_resume(lista, letter): # Função que coleta os aspectos mais relevantes
         temperature= 0
     )
     return response.choices[0].message.content
+
+def resume_treatment(resume):
+    resume = re.sub("\n", "", resume)
+    resume = re.sub("-", "", resume)
+
+    return resume

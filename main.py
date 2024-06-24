@@ -27,6 +27,3 @@ for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
 
     df = pd.DataFrame(data = data_base, columns = titles)
     df.to_csv("steven_spielberg's_movies_century_21.csv", index = False, encoding = "utf-8-sig")
-
-    if movie == "A.I. Artificial Intelligence":
-        break

@@ -70,10 +70,12 @@ def get_approvals(url):
 #Funcao que coleta o ano do filme
 def get_movie_year(url):
     # Define a base de busca:
+
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     element = soup.find_all("span", class_="nobr")
     year = [i.text for i in element][0]
     year = re.sub(r"\s+", "", year)
     year = re.sub(r'[(){}[\]]', "", year)
-    print(year)
+    
+    return year

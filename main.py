@@ -1,4 +1,11 @@
 # encoding: utf-8
+'''
+Módulo principal do projeto.
+Execução: Após realizar a coleta de informações de filmes disponíveis no site "https://www.imdb.com",
+cria um arquivo csv com análise feita a partir da API OpenAI dos comentários do público referente a
+filmes recentes dirigidos por Steven Spielberg.
+
+'''
 import web as wb
 import openia as opai
 from data import *

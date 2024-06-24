@@ -9,7 +9,6 @@ def get_web(url, comments):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     divContent = soup.find_all("div", class_="content")
-
     for content_div in divContent:
         i = 0
         text_div = content_div.find("div", class_="text show-more__control")
@@ -25,7 +24,6 @@ def rate_treatment(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     rates_base = soup.find_all("span", class_="rating-other-user-rating")
-
     # Coleta todas avaliacoes no formato X/1O e adiciona a uma lista com inteiros:
     rates = []
     for rate in rates_base:  
@@ -38,12 +36,10 @@ def rate_treatment(url):
 # Funcao que coleta a media da avaliacao
 def get_rate(url):
     rates = rate_treatment(url)
-
     # Calcula a media de todas as avaliacoes:
     rates_sum = 0
     for rate in rates:
         rates_sum += rate/len(rates)
-
     rates_sum = ceil((rates_sum*10))/10 # ceil: funcao teto. Calcula a aproximacao de um decimal
 
     return rates_sum
@@ -52,25 +48,17 @@ def get_rate(url):
 def get_approvals(url):
     # Define a base de busca:
     rates = rate_treatment(url)
-
     approved = 0
-    neutral = 0
-    not_approved = 0
-
     for rate in rates: # Aprovado >= 8, Reprovado <=5
         if rate >= 8:
-            approved += 1
-        elif rate <= 5:
-            not_approved += 1
+            approved +=1
         else:
-            neutral += 1
+            continue
 
-    return approved, neutral, not_approved
+    return approved
 
 #Funcao que coleta o ano do filme
 def get_movie_year(url):
-    # Define a base de busca:
-
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     element = soup.find_all("span", class_="nobr")

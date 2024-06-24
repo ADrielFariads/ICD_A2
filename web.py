@@ -1,5 +1,7 @@
+'''
+Módulo auxiliar do projeto, responsável por realizar o webscrapping.
+'''
 import re
-
 from bs4 import BeautifulSoup
 from math import ceil
 import requests
@@ -49,9 +51,9 @@ def get_approvals(url):
     # Define a base de busca:
     rates = rate_treatment(url)
     approved = 0
-    for rate in rates: # Aprovado >= 8, Reprovado <=5
+    for rate in rates:# Aprovado >= 8, Reprovado <=5
         if rate >= 8:
-            approved +=1
+            approved += 1
         else:
             continue
 

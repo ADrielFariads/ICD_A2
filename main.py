@@ -3,7 +3,7 @@ import openia as opai
 from data import *
 import pandas as pd
 
-titles = ["Filme", "Ano", "Avaliação Média", "Número de Aprovações", "Aspectos Positivos", "Aspectos Negativos"]
+titles = ["Filme", "Ano", "Gênero", "Avaliação Média", "Número de Aprovações", "Aspectos Positivos", "Aspectos Negativos"]
 data_base = []
 
 for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
@@ -18,9 +18,10 @@ for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
     
     line = []
     year = wb.get_movie_year(url)
+    genre = opai.get_genre(movie)
     rate = wb.get_rate(url)
     approval = wb.get_approvals(url)
-    line += [movie, year, rate, approval, positive_aspects[movie], negative_aspects[movie]]
+    line += [movie, year, rate, genre, approval, positive_aspects[movie], negative_aspects[movie]]
     data_base.append(line)
 
     df = pd.DataFrame(data = data_base, columns = titles, index = False)

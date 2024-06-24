@@ -28,3 +28,21 @@ def get_negative_aspects(comment): # Função que pede aspectos negativos do com
         temperature= 0
     )
     return response.choices[0].message.content
+
+def get_resume(lista, letter): # Função que coleta os aspectos mais relevantes para a openai
+    quality = ""
+    if letter == "p":
+        quality = "positivos"
+    if letter == "n":
+        quality = "negativos"
+    prompt = [{"role": "user",
+               "content": f"A seguir, você receberá uma lista contendo aspectos {quality} de um filme. Resuma essa lista, remova duplicatas e retorne apenas os três aspectos mais destacados em três tópicos que iniciem com -. A lista é: {lista}"}]
+    client = OpenAI(api_key = key)
+
+    response = client.chat.completions.create(
+        messages= prompt,
+        model= "gpt-3.5-turbo-0125",
+        max_tokens= 4000,
+        temperature= 0
+    )
+    return response.choices[0].message.content

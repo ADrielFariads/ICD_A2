@@ -17,24 +17,30 @@ def get_web(url, comments):
     
     return comments
 
-# Funcao que coleta a media da avaliacao
-def get_rates(url):
+# Funcao que trata as avaliacoes
+def rate_treatment(url):
     # Define a base de busca:
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     rates_base = soup.find_all("span", class_="rating-other-user-rating")
 
-    # Coleta todas avaliacoes no formato X/1O:
+    # Coleta todas avaliacoes no formato X/1O e adiciona a uma lista com inteiros:
     rates = []
     for rate in rates_base:  
         rate = rate.text.strip()
-        rates.append(rate)
+        rate = rate.split("/")
+        rates.append(int(rate[0]))
+
+    return rates
+
+# Funcao que coleta a media da avaliacao
+def get_rate(url):
+    rates = rate_treatment(url)
 
     # Calcula a media de todas as avaliacoes:
     rates_sum = 0
     for rate in rates:
-        rate = rate.split("/") # X/10 vira ["X", "10"]
-        rates_sum += int(rate[0])/len(rates)
+        rates_sum += rate/len(rates)
 
     rates_sum = ceil((rates_sum*10))/10 # ceil: funcao teto. Calcula a aproximacao de um decimal
 

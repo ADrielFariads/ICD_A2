@@ -18,64 +18,6 @@ urls = {
     "The Fabelmans": "tt14208870"
 }
 
-# Dicionario que contem os comntarios
-years = {
-    "A.I. Artificial Intelligence": "",
-    "Minority Report": "",
-    "Catch Me If You Can" : "",
-    "The Terminal": "",
-    "War of the Worlds": "",
-    "Munich": "",
-    "Indiana Jones and the Kingdom of the Crystal Skull": "",
-    "The Adventures of Tintin": "",
-    "War Horse": "",
-    "Lincoln": "",
-    "Bridge of Spies": "",
-    "The BFG": "",
-    "The Post": "",
-    "Ready Player One": "",
-    "West Side Story": "",
-    "The Fabelmans": ""
-}
-
-rates = {
-    "A.I. Artificial Intelligence": "",
-    "Minority Report": "",
-    "Catch Me If You Can" : "",
-    "The Terminal": "",
-    "War of the Worlds": "",
-    "Munich": "",
-    "Indiana Jones and the Kingdom of the Crystal Skull": "",
-    "The Adventures of Tintin": "",
-    "War Horse": "",
-    "Lincoln": "",
-    "Bridge of Spies": "",
-    "The BFG": "",
-    "The Post": "",
-    "Ready Player One": "",
-    "West Side Story": "",
-    "The Fabelmans": ""
-}
-
-approvals = {
-    "A.I. Artificial Intelligence": "",
-    "Minority Report": "",
-    "Catch Me If You Can" : "",
-    "The Terminal": "",
-    "War of the Worlds": "",
-    "Munich": "",
-    "Indiana Jones and the Kingdom of the Crystal Skull": "",
-    "The Adventures of Tintin": "",
-    "War Horse": "",
-    "Lincoln": "",
-    "Bridge of Spies": "",
-    "The BFG": "",
-    "The Post": "",
-    "Ready Player One": "",
-    "West Side Story": "",
-    "The Fabelmans": ""
-}
-
 # Dicionario que contem os comentarios
 comments = {
     "A.I. Artificial Intelligence": [],
@@ -133,9 +75,3 @@ negative_aspects = {
     "West Side Story": "",
     "The Fabelmans": ""
 }
-
-lista = []
-
-lista += [1,2,3,4]
-
-print(lista)

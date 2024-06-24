@@ -57,3 +57,16 @@ def resume_treatment(resume):
     resume = re.sub("-", "", resume)
 
     return resume
+
+def get_genre(movie):
+    prompt = [{"role": "user",
+               "content": f"A seguir, você receberá o nome de um filme. Quero que você me responda apenas o gênero desse filme, iniciado com letra maiúscula e sem ponto ponto final. O nome do filme é: {movie}"}]
+    client = OpenAI(api_key = key)
+
+    response = client.chat.completions.create(
+        messages= prompt,
+        model= "gpt-3.5-turbo-0125",
+        max_tokens= 4000,
+        temperature= 0
+    )
+    return response.choices[0].message.content

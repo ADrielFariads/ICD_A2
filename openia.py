@@ -2,7 +2,7 @@ from openai import OpenAI
 import re
 
 # INSERIR A CHAVE AQUI
-key = "sk-proj-JfeivvuWXmM2A7rHBnLiT3BlbkFJBqnVUNyrdvyWnErHVaED"
+key = ""
 
  # Função que pede aspectos positivos do comentario para a api openai
 def get_positive_aspects(comment):

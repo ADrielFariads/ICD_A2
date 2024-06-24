@@ -1,5 +1,6 @@
-from web import get_web
-from openia import add_info
+import web as wb
+import openia as opai
+
 
 # Dicionario que contem o codigo especifico de um url para cada filme
 urls = {
@@ -41,7 +42,57 @@ comments = {
     "The Fabelmans": []
 }
 
-# Funcao que coleta os comentarios
-for url, url_Id in urls.items():
-    get_web(f"https://www.imdb.com/title/{url_Id}/reviews/?ref_=tt_ql_2", comments[url])
-    add_info(comments[url], url)
+positive_aspects = {
+    "A.I. Artificial Intelligence": [],
+    "Minority Report": [],
+    "Catch Me If You Can" : [],
+    "The Terminal": [],
+    "War of the Worlds": [],
+    "Munich": [],
+    "Indiana Jones and the Kingdom of the Crystal Skull": [],
+    "The Adventures of Tintin": [],
+    "War Horse": [],
+    "Lincoln": [],
+    "Bridge of Spies": [],
+    "The BFG": [],
+    "The Post": [],
+    "Ready Player One": [],
+    "West Side Story": [],
+    "The Fabelmans": []
+}
+
+negative_aspects = {
+    "A.I. Artificial Intelligence": [],
+    "Minority Report": [],
+    "Catch Me If You Can" : [],
+    "The Terminal": [],
+    "War of the Worlds": [],
+    "Munich": [],
+    "Indiana Jones and the Kingdom of the Crystal Skull": [],
+    "The Adventures of Tintin": [],
+    "War Horse": [],
+    "Lincoln": [],
+    "Bridge of Spies": [],
+    "The BFG": [],
+    "The Post": [],
+    "Ready Player One": [],
+    "West Side Story": [],
+    "The Fabelmans": []
+}
+
+
+for movie, url in urls.items():
+    comments_base = wb.get_web(f"https://www.imdb.com/title/{url}/reviews/?ref_=tt_ql_2", comments[movie])
+    for comment in comments_base:
+        positive_aspects[movie] = opai.get_positive_aspects(movie)
+        negative_aspects[movie] = opai.get_negative_aspects(movie)
+    positive_aspects[movie] = opai.get_resume(positive_aspects[movie], "p")
+    negative_aspects[movie] = opai.get_resume(negative_aspects[movie], "n")
+    print(positive_aspects[movie])
+    print(opai.resume_treatment(positive_aspects[movie]))
+    print()
+    print(opai.resume_treatment(negative_aspects[movie]))
+    print()
+    
+    if movie == "A.I. Artificial Intelligence":
+        break

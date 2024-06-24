@@ -45,3 +45,22 @@ def get_rate(url):
     rates_sum = ceil((rates_sum*10))/10 # ceil: funcao teto. Calcula a aproximacao de um decimal
 
     return rates_sum
+
+# Funcao que coleta as aprovacoes
+def get_approvals(url):
+    # Define a base de busca:
+    rates = rate_treatment(url)
+
+    approved = 0
+    neutral = 0
+    not_approved = 0
+
+    for rate in rates: # Aprovado >= 8, Reprovado <=5
+        if rate >= 8:
+            approved += 1
+        elif rate <= 5:
+            not_approved += 1
+        else:
+            neutral += 1
+
+    return approved, neutral, not_approved

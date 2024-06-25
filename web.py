@@ -8,6 +8,7 @@ import requests
 
 # Funcao que coleta os comentarios
 def get_web(url, comments):
+    # Define a base de busca
     page = requests.get(url)
     soup = BeautifulSoup(page.text, "lxml")
     divContent = soup.find_all("div", class_="content")
@@ -51,7 +52,7 @@ def get_approvals(url):
     # Define a base de busca:
     rates = rate_treatment(url)
     approved = 0
-    for rate in rates: # Aprovado >= 8, Reprovado <=5
+    for rate in rates: # Aprovado >= 8
         if rate >= 8:
             approved +=1
         else:
@@ -65,7 +66,7 @@ def get_movie_year(url):
     soup = BeautifulSoup(page.text, "lxml")
     element = soup.find_all("span", class_="nobr")
     year = [i.text for i in element][0]
-    year = re.sub(r"\s+", "", year)
+    year = re.sub(r"\s+", "", year) # Tratamento do texto
     year = re.sub(r'[(){}[\]]', "", year)
     
     return year

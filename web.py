@@ -51,13 +51,13 @@ def get_approvals(url):
     # Define a base de busca:
     rates = rate_treatment(url)
     approved = 0
-    for rate in rates:# Aprovado >= 8, Reprovado <=5
+    for rate in rates: # Aprovado >= 8, Reprovado <=5
         if rate >= 8:
-            approved += 1
+            approved +=1
         else:
             continue
-
-    return approved
+    percent_approval = (ceil(approved/len(rates)*100))/100
+    return percent_approval
 
 #Funcao que coleta o ano do filme
 def get_movie_year(url):

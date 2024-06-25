@@ -7,7 +7,7 @@ filmes recentes dirigidos por Steven Spielberg.
 
 '''
 import web as wb
-import openia as opai
+import openai as opai
 from data import *
 import pandas as pd
 

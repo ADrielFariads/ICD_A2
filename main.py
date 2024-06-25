@@ -21,15 +21,15 @@ for movie, code in urls.items(): # Cada filme tem um codigo que muda na url
         positive_aspects[movie] += opai.get_positive_aspects(movie)
         negative_aspects[movie] += opai.get_negative_aspects(movie)
 
-    positive_aspects[movie] = opai.resume_treatment(opai.get_resume(positive_aspects[movie], "p"))
-    negative_aspects[movie] = opai.resume_treatment(opai.get_resume(negative_aspects[movie], "n"))
+    positive_aspects[movie] = opai.resume_treatment(opai.get_resume(positive_aspects[movie], "p")) # Resume os aspectos positivos
+    negative_aspects[movie] = opai.resume_treatment(opai.get_resume(negative_aspects[movie], "n")) # Resume os aspectos negativos
     
     line = []
     year = wb.get_movie_year(url)
     genre = opai.get_genre(movie)
     rate = wb.get_rate(url)
     approval = wb.get_approvals(url)
-    line += [movie, year, genre, rate, approval, positive_aspects[movie], negative_aspects[movie]]
+    line += [movie, year, genre, rate, approval, positive_aspects[movie], negative_aspects[movie]] # Aqui faz linha por linha e adiciona a tabela
     data_base.append(line)
 
 df = pd.DataFrame(data = data_base, columns = titles)

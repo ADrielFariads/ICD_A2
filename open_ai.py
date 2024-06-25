@@ -1,7 +1,7 @@
 '''
 Módulo auxiliar do projeto, responsável por interagir com a API OpenAI.
 '''
-from open_ai import OpenAI
+from openai import OpenAI
 import re
 
 # INSERIR A CHAVE AQUI

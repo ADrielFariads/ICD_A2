@@ -38,6 +38,7 @@ comments = {
     "The Fabelmans": []
 }
 
+# Dicionario que contem os aspectos positivos
 positive_aspects = {
     "A.I. Artificial Intelligence": "",
     "Minority Report": "",
@@ -57,6 +58,7 @@ positive_aspects = {
     "The Fabelmans": ""
 }
 
+# Dicionario que contem os aspectos negativos
 negative_aspects = {
     "A.I. Artificial Intelligence": "",
     "Minority Report": "",

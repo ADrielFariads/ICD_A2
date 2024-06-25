@@ -11,7 +11,7 @@ import openia as opai
 from data import *
 import pandas as pd
 
-titles = ["Filme", "Ano", "Gênero", "Avaliação Média", "Número de Aprovações", "Aspectos Positivos", "Aspectos Negativos"]
+titles = ["Filme", "Ano", "Gênero", "Avaliação Média", "Porcentagem de Aprovações", "Aspectos Positivos", "Aspectos Negativos"]
 data_base = []
 
 for movie, code in urls.items(): # Cada filme tem um codigo que muda na url

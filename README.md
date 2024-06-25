@@ -17,6 +17,9 @@ A execução do programa leva aproximadamente 30 minutos. Como resultado, o scri
 
 ## Autores
 Adriel Dias Faria dos Santos
+
 Gabriel Schuenker Rosa de Oliveira
+
 João Victor Resende Fernandes
+
 Pedro Augusto da Silva 

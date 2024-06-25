@@ -4,7 +4,6 @@ Módulo auxiliar do projeto, responsável por interagir com a API OpenAI.
 from openai import OpenAI
 import re
 
-
 # INSERIR A CHAVE AQUI
 key = ""
 
